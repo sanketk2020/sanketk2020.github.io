@@ -448,7 +448,7 @@
   var xaSpan = function (x) { var y = x.dates.match(/\d{4}/g) || []; return y.length > 1 ? y[0] + ' – ' + y[1] : (x.current ? y[0] + ' – now' : y[0]); };
   var xpAcc = function () {
     return '<section class="xa">' + D.experience.map(function (x, i) {
-      var open = !!x.current;
+      var open = true;
       return '<div class="xa-r rv' + (open ? ' open' : '') + '"><button class="xa-h" type="button" aria-expanded="' + open + '" aria-controls="xa' + i + '"><small>' + esc(xaSpan(x)) + '</small><b>' + esc(x.role) + '</b><span>' + esc(x.company) + (x.current ? ' <em class="xa-now">Current</em>' : '') + '</span><i aria-hidden="true">+</i></button>' +
         '<div class="xa-b" id="xa' + i + '"><div><div class="xa-in"><p class="xa-m">' + esc(x.dates) + ' · ' + esc(x.place) + '</p><ul>' + x.points.map(function (p) { return '<li>' + esc(p) + '</li>'; }).join('') + '</ul>' + chips(x.tech) + '</div></div></div></div>';
     }).join('') + '</section>';
@@ -548,11 +548,11 @@
     var card = function (t, k) { return '<div class="kc" data-k="' + k + '" style="--c:' + SC[t[0]] + '"><div class="kc-top"><span class="kc-st">' + ST_IC.todo + '</span><i>SK-' + (101 + k) + '</i><span class="kc-av">SK</span></div><b>' + esc(t[1]) + '</b><span class="kc-tag">' + esc(PUB[t[0]][1]) + '</span></div>'; };
     var col = function (id, name) { return '<section class="kcol" data-col="' + id + '"><header><span class="kh-ic">' + ST_IC[id] + '</span><b>' + name + '</b><i class="kh-n">0</i></header><div class="kcol-b"></div></section>'; };
     var o = overlay('board',
-      '<div class="kb-wrap"><div class="kb-head"><div><span class="eyebrow">My expertise · release board</span><h2>Version 6.0 → <em>App Store</em></h2><p class="muted">Every release, the same ' + TASKS.length + ' tasks across four stages. Watch them move to Done.</p></div>' +
+      '<div class="kb-wrap"><div class="kb-head"><div><span class="eyebrow">My expertise</span><h2>How I publish to the <em>App Store</em></h2><p class="muted">Every app I release goes through the same ' + TASKS.length + ' steps in four stages. Watch them move to Done.</p></div>' +
       '<button class="btn sm" data-spx-close>Close ' + I.x + '</button></div>' +
       '<div class="kb-prog"><div class="kb-stages">' + PUB.map(function (s, k) { return '<span style="--c:' + SC[k] + '"><i></i>' + esc(s[1]) + '</span>'; }).join('') + '</div><div class="kb-bar"><i></i></div><small class="kb-count">0 of ' + TASKS.length + ' done</small></div>' +
       '<div class="kb-cols">' + col('todo', 'To do') + col('doing', 'In progress') + col('done', 'Done') + '</div>' +
-      '<div class="kb-end"><span class="kb-check">' + ST_IC.done + '</span><div><h3>Shipped. Version 6.0 is <em>Ready for Sale.</em></h3><div class="kb-stats"><span><b>' + D.appsTotal + '</b> apps worked on</span><span><b>' + D.appsOnStore + '</b> on the App Store</span><span><b>' + esc(D.years) + '</b> years in iOS</span></div>' +
+      '<div class="kb-end"><span class="kb-check">' + ST_IC.done + '</span><div><h3>Done. The app is <em>live on the App Store.</em></h3><div class="kb-stats"><span><b>' + D.appsTotal + '</b> apps worked on</span><span><b>' + D.appsOnStore + '</b> on the App Store</span><span><b>' + esc(D.years) + '</b> years in iOS</span></div>' +
       '<div class="mp-pills">' + livePills() + '</div><div class="row-btns"><a class="btn pri sm" href="projects.html">See the ' + D.appsBuilt + ' featured apps ' + I.ar + '</a><button class="btn sm" data-kb="replay">Run the board again ⟲</button></div></div></div></div>', 'App Store publishing release board');
     var cols = {}; $$('.kcol', o).forEach(function (c) { cols[c.getAttribute('data-col')] = $('.kcol-b', c); });
     var count = function () { $$('.kcol', o).forEach(function (c) { $('.kh-n', c).textContent = $$('.kc', c).length; }); var d = $$('.kc', cols.done).length; $('.kb-count', o).textContent = d + ' of ' + TASKS.length + ' done'; o.style.setProperty('--p', (d / TASKS.length).toFixed(3)); };

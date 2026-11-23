@@ -833,3 +833,16 @@ body { transition: background-color .35s ease, color .35s ease; }
 .lrip b { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--li); opacity: .5; animation: lripD .6s ease forwards; }
 @keyframes lripR { 0% { opacity: .7; transform: scale(.08); } 100% { opacity: 0; transform: scale(1); } }
 @keyframes lripD { to { opacity: 0; transform: scale(.4); } }
+
+/* ===== headings in Ember's Archivo bold (2026-11-24) ===== */
+:root { --serif: 'Archivo', 'Helvetica Neue', Arial, sans-serif; }
+h1, h2, h3, .letter h2, .bt h3 { font-weight: 700; font-stretch: 106%; letter-spacing: -.035em; line-height: 1; }
+em { font-style: normal; }
+.hero h1 { line-height: .98; }
+.hero h1 em { display: block; }
+.t-name b, .tl-i b, .os b, .ed b, .kb-stats b, .xa-h b, .tfx-c b { font-weight: 700; font-stretch: 104%; letter-spacing: -.025em; }
+.kv.strip dd, .mega { font-weight: 600; letter-spacing: -.02em; }
+.words span { font-style: normal; font-weight: 800; font-stretch: 112%; letter-spacing: -.04em; }
+.m-idx, .kc-av, .mk, .ssw.core, .bt-reel, .ss-note i, .ss-key i { font-style: normal; }
+.m-idx { font-weight: 700; }
+.bt-roll, .bt-reel { font-weight: 700; letter-spacing: -.03em; }
