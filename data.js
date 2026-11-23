@@ -215,13 +215,13 @@ window.PORTFOLIO = {
   ],
 
   skills: [
-    { group: "iOS & Apple platforms", items: [["Swift", 1], ["UIKit", 1], ["SwiftUI"], ["Objective-C", 0, "Legacy"], ["Core Data"], ["GCD"], ["Memory management"], ["macOS apps"]] },
+    { group: "iOS & Apple platforms", items: [["Swift", 1], ["UIKit", 1], ["SwiftUI"], ["Combine"], ["Objective-C", 0, "Legacy"], ["Auto Layout"], ["Core Data"], ["Core Location"], ["Keychain"], ["GCD"], ["Memory management"], ["macOS apps"]] },
     { group: "Cross-platform", items: [["Flutter"], ["Dart"], ["Flutter Add-to-App"], ["Platform Channels"]] },
     { group: "Architecture", items: [["MVVM", 1], ["MVC", 1], ["Clean Architecture"], ["Modular architecture"], ["Dependency injection"]] },
-    { group: "Networking & real-time", items: [["REST APIs", 1], ["URLSession"], ["Alamofire"], ["WebSockets", 1], ["Socket.IO"]] },
-    { group: "SDKs & integrations", items: [["Firebase", 1], ["Crashlytics", 1], ["FCM / APNs"], ["In-app purchases"], ["Deep linking"], ["Razorpay"], ["Stripe"], ["Google Maps SDK"], ["CallKit & PushKit"], ["AWS S3"], ["Zendesk"]] },
-    { group: "App Store & release", items: [["App Store Connect", 1], ["TestFlight", 1], ["Code signing", 1], ["Provisioning profiles"], ["Certificates & App IDs"], ["GitLab CI/CD"], ["Azure Pipelines"], ["Instruments"], ["Xcode", 1], ["Git"], ["JIRA"], ["Postman"]] },
-    { group: "Ways of working", items: [["Code review"], ["Mentoring juniors"], ["Agile / Scrum"]] }
+    { group: "Networking & real-time", items: [["REST APIs", 1], ["JSON"], ["URLSession"], ["Alamofire"], ["WebSockets", 1], ["Socket.IO"]] },
+    { group: "SDKs & integrations", items: [["Firebase", 1], ["Crashlytics", 1], ["FCM / APNs"], ["In-app purchases"], ["Deep linking"], ["Social login"], ["Razorpay"], ["Stripe"], ["PayPal"], ["Google Maps SDK"], ["CallKit & PushKit"], ["Linphone SDK (VoIP)"], ["Bluetooth (BLE)"], ["AWS S3"], ["Zendesk"]] },
+    { group: "App Store & release", items: [["App Store Connect", 1], ["TestFlight", 1], ["Code signing", 1], ["Provisioning profiles"], ["Certificates & App IDs"], ["GitLab CI/CD"], ["Azure Pipelines"], ["Instruments"], ["Xcode", 1], ["Git"], ["Swift Package Manager"], ["CocoaPods"], ["JIRA"], ["Postman"]] },
+    { group: "Ways of working & AI", items: [["Code review"], ["Mentoring juniors"], ["Agile / Scrum"], ["Claude Code"], ["OpenAI Codex"], ["ChatGPT"]] }
   ],
 
   education: [

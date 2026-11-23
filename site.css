@@ -825,3 +825,11 @@ body { transition: background-color .35s ease, color .35s ease; }
 .qrc { --qr-bg: var(--surface); --qr-r: 16px; }
 /* the big email stays whole: only wraps before the @ on very narrow screens */
 .mega { word-break: normal; overflow-wrap: normal; font-size: clamp(24px, 2.7vw, 36px); }
+
+/* tap on empty space: soft ripple */
+.lrip { width: 0; height: 0; }
+.lrip i { position: absolute; left: 0; top: 0; width: 110px; height: 110px; margin: -55px 0 0 -55px; border-radius: 50%; border: 1.5px solid var(--li); opacity: 0; transform: scale(.08); animation: lripR .95s cubic-bezier(.2,.8,.2,1) forwards; }
+.lrip i + i { width: 70px; height: 70px; margin: -35px 0 0 -35px; border-width: 1px; animation-delay: .1s; }
+.lrip b { position: absolute; left: -5px; top: -5px; width: 10px; height: 10px; border-radius: 50%; background: var(--li); opacity: .5; animation: lripD .6s ease forwards; }
+@keyframes lripR { 0% { opacity: .7; transform: scale(.08); } 100% { opacity: 0; transform: scale(1); } }
+@keyframes lripD { to { opacity: 0; transform: scale(.4); } }

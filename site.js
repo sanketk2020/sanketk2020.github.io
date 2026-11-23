@@ -102,7 +102,7 @@
   var LIVE = D.projects.filter(function (p) { return p.appStore; });
   var FEAT = ['foodini', 'smart-residential', 'hvac', 'wealth', 'investment-dojo'].map(byId);
   var SVC_IC = { phone: I.phone, ship: I.ship, wrench: I.wrench, bolt: I.bolt };
-  var SKILL_NOTES = ['Daily tools for building native apps, plus the legacy Objective-C I maintain.', 'Bringing Flutter into native apps without a rewrite.', 'Structure that keeps a codebase healthy after the first release.', 'Live data that stays smooth on real networks.', 'The SDKs that make apps real: payments, push, maps, calling.', 'My speciality: signing, provisioning, TestFlight and App Store Connect, getting every build into users\' hands.', 'How I work with teams day to day.'];
+  var SKILL_NOTES = ['Daily tools for building native apps, plus the legacy Objective-C I maintain.', 'Bringing Flutter into native apps without a rewrite.', 'Structure that keeps a codebase healthy after the first release.', 'Live data that stays smooth on real networks.', 'The SDKs that make apps real: payments, push, maps, calling.', 'My speciality: signing, provisioning, TestFlight and App Store Connect, getting every build into users\' hands.', 'How I work with teams, and the AI tools that speed up my work.'];
   var FACTS = [['Based in', D.location], ['Work mode', D.remote], ['Experience', D.years + ' years · iOS'], ['Currently', cur.company], ['Speciality', 'App Store publishing'], ['Languages', D.languages], ['Education', D.education[0].title], ['Status', D.status]];
   var CERT_GROUPS = [['all', 'All'], ['apple', 'Apple'], ['udemy', 'Udemy'], ['openai', 'OpenAI'], ['anthropic', 'Anthropic'], ['tops', 'TOPS']];
   var certCount = function (g) { return g === 'all' ? D.certificates.length : D.certificates.filter(function (c) { return c.style === g; }).length; };
@@ -330,7 +330,7 @@
   /* ---------- skills as a type specimen: size = how many of my apps use it, italic = every day ---------- */
   var SS_ALIAS = { 'Google Maps SDK': 'Google Maps', 'FCM / APNs': 'APNs', 'Flutter Add-to-App': 'Add-to-App' };
   var ssUses = function (n) { var t = SS_ALIAS[n] || n; return D.projects.filter(function (p) { return p.tech.indexOf(t) > -1; }); };
-  var SS_NOTES = ['Daily tools for building native apps, plus the legacy Objective-C I maintain.', 'Bringing Flutter into native apps without a rewrite.', 'Structure that keeps a codebase healthy after the first release.', 'Live data that stays smooth on real networks.', 'The SDKs that make apps real: payments, push, maps, calling.', 'My expertise: signing, provisioning, TestFlight and App Store Connect, getting every build into users\' hands.', 'How I work with teams day to day.'];
+  var SS_NOTES = ['Daily tools for building native apps, plus the legacy Objective-C I maintain.', 'Bringing Flutter into native apps without a rewrite.', 'Structure that keeps a codebase healthy after the first release.', 'Live data that stays smooth on real networks.', 'The SDKs that make apps real: payments, push, maps, calling.', 'My expertise: signing, provisioning, TestFlight and App Store Connect, getting every build into users\' hands.', 'How I work with teams, and the AI tools that speed up my work.'];
   var SS_DEFAULT = 'The larger the word, the more of my apps use it. <i>Italic</i> means I use it every day. Hover or tap any word for details.';
   var specimen = function () {
     var words = []; D.skills.forEach(function (g, gi) { g.items.forEach(function (it) { words.push([it, gi]); }); });
@@ -390,7 +390,7 @@
   }
 
   /* ---------- skills as an interactive bento: one tile per group, no labels or counts ---------- */
-  var BT_NOTES = ['The core of every app I build, plus the legacy Objective-C I maintain.', 'Bringing Flutter into native apps without a rewrite.', 'Structure that keeps a codebase healthy after the first release.', 'Live data that stays smooth on real networks.', 'The SDKs that make apps real: payments, push, maps, calling.', 'Signing, provisioning, TestFlight and App Store Connect, done myself on every app.', 'How I work with teams day to day.'];
+  var BT_NOTES = ['The core of every app I build, plus the legacy Objective-C I maintain.', 'Bringing Flutter into native apps without a rewrite.', 'Structure that keeps a codebase healthy after the first release.', 'Live data that stays smooth on real networks.', 'The SDKs that make apps real: payments, push, maps, calling.', 'Signing, provisioning, TestFlight and App Store Connect, done myself on every app.', 'How I work with teams, and the AI tools that speed up my work.'];
   var BT_AREA = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
   var bento = function () {
     return '<section class="bt-grid">' + D.skills.map(function (g, i) {
@@ -458,9 +458,7 @@
   var techFilter = function () {
     var count = {}; D.projects.forEach(function (p) { p.tech.forEach(function (t) { count[t] = (count[t] || 0) + 1; }); });
     var techs = Object.keys(count).sort(function (a, b) { return count[b] - count[a] || a.localeCompare(b); });
-    return '<section class="tfx"><div class="tfx-top rv"><span class="tfx-l">Filter by technology</span><button class="tfx-clear" type="button" hidden>Clear</button></div>' +
-      '<div class="tfx-k rv" role="group" aria-label="Filter apps by technology">' + techs.map(function (t) { return '<button type="button" aria-pressed="false" data-t="' + esc(t) + '">' + esc(t) + '<i>' + count[t] + '</i></button>'; }).join('') + '</div>' +
-      '<p class="tfx-o" aria-live="polite">Showing all ' + D.projects.length + ' apps. Pick one or more technologies to narrow them down.</p>' +
+    return '<section class="tfx">' +
       '<div class="tfx-g">' + D.projects.map(function (p, i) {
         return '<article class="tfx-c" data-i="' + i + '"><button class="tfx-hit" data-app="' + i + '" aria-label="Open ' + esc(p.name) + '"></button><small>' + esc(p.label) + ' · ' + esc(p.years) + '</small><b>' + esc(p.name) + '</b><p>' + esc(p.summary) + '</p>' +
           '<div class="tfx-ch">' + p.tech.map(function (t) { return '<span data-t="' + esc(t) + '">' + esc(t) + '</span>'; }).join('') + '</div><div class="tfx-ft">' + statusTag(p) + storeTag(p) + '</div></article>';
@@ -624,8 +622,8 @@
       }, { passive: true });
       document.addEventListener('pointerdown', function () { lb.classList.remove('on'); });
     }
-    // click on empty space: a lilac checkmark draws itself
-    onEmptyClick(function (x, y) { fx('tick', x, y, '<svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="21"/><path d="M14 24.5l7 7 13-14"/></svg>', 1300); });
+    // click on empty space: a soft lilac ripple
+    onEmptyClick(function (x, y) { fx('lrip', x, y, '<i></i><i></i><b></b>', 1100); });
   };
 
   /* ---------- modal ---------- */
