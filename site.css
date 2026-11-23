@@ -846,3 +846,7 @@ em { font-style: normal; }
 .m-idx, .kc-av, .mk, .ssw.core, .bt-reel, .ss-note i, .ss-key i { font-style: normal; }
 .m-idx { font-weight: 700; }
 .bt-roll, .bt-reel { font-weight: 700; letter-spacing: -.03em; }
+
+/* ===== header name in Archivo semibold (2026-11-24) ===== */
+.wmk-s, .wm .wmk-s { font: 650 18px/1 'Archivo', sans-serif; font-stretch: 106%; letter-spacing: -.03em; padding-top: 0; }
+@media (max-width: 760px) { .wm .wmk-s { font-size: 17px; } }
